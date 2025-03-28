@@ -1,5 +1,7 @@
+repo: "johnnywu2k/void"
 name: "void"
 displayName: "Void"
 author: "Johnny"
 version: "1.0"
+description: "added some cool void stuff"
 minGameVersion: "146"
