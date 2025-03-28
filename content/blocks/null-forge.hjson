@@ -1,0 +1,38 @@
+type: GenericCrafter
+name: "虛空之爐"
+description: "Creates Null from silicon and graphite."
+outputItem: {
+  item: null
+  amount: 2
+}
+consumes: {
+  power: 0.75
+  items: {
+    items: [
+      {
+        item: silicon
+        amount: 2
+      }
+      {
+        item: graphite
+        amount: 1
+      }
+    ]
+  }
+}
+requirements: [
+  copper/30
+  lead/30
+  titanium/25
+]
+size: 3
+hasPower: true
+hasLiquids: false
+hasItems: true
+itemCapacity: 10
+craftTime: 120
+updateEffect: smeltsmoke
+category: crafting
+research: silicon-smelter
+idleSound: respawning
+idleSoundVolume: 0.5

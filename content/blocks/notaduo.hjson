@@ -1,0 +1,58 @@
+type: ItemTurret
+localizedName: "虛空炮"
+description: "???"
+targetAir: true
+targetGround: true
+health: 10000
+size: 2
+reload: 1
+ammoUseEffect: casing1
+inaccuracy: 2
+rotateSpeed: 12
+range: 300
+shake: 1
+
+consumes: {
+  coolant: {
+    amount: 0.1
+  }
+}
+
+ammoTypes: {
+  copper: {
+    speed: 20
+    damage: 10
+    width: 10
+    height: 10
+    lifetime: 50
+    ammoMultiplier: 10
+  }
+  titanium: {
+    speed: 40
+    damage: 10
+    width: 20
+    height: 20
+    lifetime: 100
+    splashDamage: 30
+    splashDamageRadius: 100
+    knockback: 2
+    hitEffect: blastExplosion 
+    despawnEffect: blastExplosion 
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+    ammoMultiplier: 20
+  }
+}
+
+shoot: {
+  type: ShootAlternate
+  shots: 8
+  spread: 6
+  shotDelay: 1
+}
+
+requirements: [
+  copper/200
+]
+category: turret
+research: hail
