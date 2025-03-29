@@ -1,0 +1,40 @@
+type: GenericCrafter
+name: "暗物質合成器"
+description: "利用虛無和石墨的特性，合成出強大的暗物質。"
+size: 3
+health: 1500
+craftTime: 120
+consumes: {
+  power: 2.5
+  items: {
+    items: [
+      {
+        item: null
+        amount: 2
+      }
+      {
+        item: graphite
+        amount: 3
+      }
+    ]
+  }
+}
+outputItem: {
+  item: dark-matter
+  amount: 1
+}
+requirements: [
+  titanium/80
+  silicon/60
+  graphite/50
+]
+category: crafting
+research: null-forge
+
+ambientSound: machine
+ambientSoundVolume: 0.5
+
+drawLights: true
+hasItems: true
+hasPower: true
+updateEffect: smeltsmoke

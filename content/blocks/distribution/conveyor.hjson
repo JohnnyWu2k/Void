@@ -1,0 +1,20 @@
+type: Conveyor
+localizedName: "虛空運輸帶"
+description: "由虛空能量驅動的高速運輸帶，能以接近光速的速度傳送物品。"
+health: 45
+speed: 0.25
+displayedSpeed: 25
+research: {
+  parent: void-crystal
+  requirements: [
+    dark-matter/50
+    quantum-shard/25
+    void-crystal/10
+  ]
+}
+requirements: [
+  dark-matter/25
+  quantum-shard/15
+  void-crystal/5
+]
+category: distribution

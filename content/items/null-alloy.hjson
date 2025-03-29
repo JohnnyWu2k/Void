@@ -1,0 +1,18 @@
+type: material
+localizedName: "虛無合金"
+description: "由虛空能量與高級金屬融合而成的超級合金。具有極強的耐久性，是製造高級防禦設施的理想材料。"
+color: 4B478F
+research: {
+  parent: void-crystal
+  requirements: [
+    void-crystal/50
+    titanium/100
+  ]
+}
+explosiveness: 2.5
+flammability: 0
+radioactivity: 0
+charge: 0.8
+cost: 4
+hardness: 6
+

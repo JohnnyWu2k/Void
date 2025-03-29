@@ -1,0 +1,17 @@
+type: material
+localizedName: "量子碎片"
+description: "不穩定的量子態物質碎片，每一片都蘊含著無限的可能性。作為武器彈藥時會產生不可預測的量子效應。"
+color: 9370DB
+research: {
+  parent: void-crystal
+  requirements: [
+    void-crystal/50
+    dark-matter/75
+  ]
+}
+explosiveness: 1.5
+flammability: 0
+radioactivity: 2
+charge: 1
+cost: 5
+hardness: 3

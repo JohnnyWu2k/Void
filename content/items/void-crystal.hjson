@@ -1,0 +1,16 @@
+type: material
+localizedName: "虛空能量結晶"
+description: "從虛空中提取並結晶化的純粹能量。這種不穩定的晶體蘊含著巨大的能量，可用於高級武器和設備。"
+color: 6F6BC7
+research: {
+  parent: dark-matter
+  requirements: [
+    dark-matter/100
+  ]
+}
+explosiveness: 2
+flammability: 0
+radioactivity: 1
+charge: 0.8
+cost: 3
+hardness: 4

@@ -1,0 +1,89 @@
+type: ItemTurret
+localizedName: "追蹤導彈發射器"
+description: "發射具有追蹤能力的導彈，可以對敵人造成大範圍傷害。"
+targetAir: true
+targetGround: true
+health: 1800
+size: 3
+reload: 120
+inaccuracy: 5
+rotateSpeed: 4
+range: 500
+shake: 2
+
+consumes: {
+  coolant: {
+    amount: 0.2
+  }
+}
+
+requirements: [
+  dark-matter/90
+  quantum-shard/45
+  void-crystal/25
+]
+
+research: {
+  parent: void-crystal
+  requirements: [
+    dark-matter/120
+    quantum-shard/60
+    void-crystal/35
+  ]
+}
+
+ammoTypes: {
+  dark-matter: {
+    type: MissileBulletType
+    damage: 200
+    speed: 4
+    lifetime: 125
+    width: 8
+    height: 16
+    splashDamage: 150
+    splashDamageRadius: 80
+    homingPower: 0.1
+    homingRange: 100
+    weaveScale: 4
+    weaveMag: 4
+    hitEffect: blastExplosion
+    despawnEffect: blastExplosion
+    trailEffect: missileTrail
+    trailChance: 0.8
+    ammoMultiplier: 1
+  }
+  silicon: {
+    type: MissileBulletType
+    damage: 100
+    speed: 3
+    lifetime: 100
+    width: 7
+    height: 14
+    splashDamage: 80
+    splashDamageRadius: 40
+    homingPower: 0.08
+    homingRange: 80
+    weaveScale: 3
+    weaveMag: 3
+    hitEffect: blastExplosion
+    despawnEffect: blastExplosion
+    trailEffect: missileTrail
+    trailChance: 0.6
+    ammoMultiplier: 2
+  }
+}
+
+shoot: {
+  type: ShootSpread
+  shots: 2
+  spread: 10
+  shotDelay: 5
+}
+
+requirements: [
+  titanium/180
+  silicon/120
+  graphite/80
+]
+category: turret
+research: dark-matter-laser
