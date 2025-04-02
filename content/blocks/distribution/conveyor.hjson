@@ -1,6 +1,6 @@
 type: Conveyor
-localizedName: "虛空運輸帶"
-description: "由虛空能量驅動的高速運輸帶，能以接近光速的速度傳送物品。"
+localizedName: "質能運輸帶"
+description: "因暗物質、暗能量及反物質的特殊屬性，所以必須以特製運輸帶輸送。"
 health: 45
 speed: 0.25
 displayedSpeed: 25
