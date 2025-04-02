@@ -6,7 +6,7 @@ size: 4
 health: 2000
 craftTime: 180
 consumes: {
-  power: 10
+  power: 100
   items: {
     items: [
       {

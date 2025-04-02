@@ -1,21 +1,20 @@
 type: GenericCrafter
-name: "dark-matter-synthesizer"  // 改為英文內部識別名
-localizedName: "暗物質合成器"    // 添加這行作為顯示名稱
+name: "dark-matter-synthesizer"  
+localizedName: "暗物質合成器"    
 description: "利用虛無和石墨的特性，合成出強大的暗物質。"
 size: 3
 health: 1500
 craftTime: 120
 consumes: {
-  power: 2.5
+  power: 50
+  coolant: {
+    amount: 0.5
+  }
   items: {
     items: [
       {
-        item: null
+        item: thorium
         amount: 2
-      }
-      {
-        item: graphite
-        amount: 3
       }
     ]
   }

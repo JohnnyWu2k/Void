@@ -13,7 +13,7 @@ consumes: {
   items: {
     items: [
       {
-        item: null
+        item: void-crystal
         amount: 1
       }
     ]

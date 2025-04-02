@@ -22,9 +22,8 @@ consumes: {
       }
     ]
   }
-  liquid: {
-    liquid: cryofluid
-    amount: 0.8
+  coolant: {
+    amount: 0.5
   }
 }
 
