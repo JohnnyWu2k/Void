@@ -1,5 +1,6 @@
 type: GenericCrafter
-name: "暗物質合成器"
+name: "dark-matter-synthesizer"  // 改為英文內部識別名
+localizedName: "暗物質合成器"    // 添加這行作為顯示名稱
 description: "利用虛無和石墨的特性，合成出強大的暗物質。"
 size: 3
 health: 1500

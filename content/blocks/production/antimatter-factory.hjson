@@ -1,0 +1,50 @@
+type: GenericCrafter
+name: "antimatter-factory"
+localizedName: "反物質工廠"
+description: "使用波動合金和暗物質生產反物質，需要極高的能量輸入。"
+size: 4
+health: 2000
+craftTime: 180
+consumes: {
+  power: 10
+  items: {
+    items: [
+      {
+        item: surge-alloy
+        amount: 4
+      }
+      {
+        item: dark-matter
+        amount: 2
+      }
+    ]
+  }
+}
+outputItem: {
+  item: anti-matter
+  amount: 1
+}
+requirements: [
+  surge-alloy/150
+  titanium/100
+  silicon/80
+  dark-matter/50
+]
+category: crafting
+research: dark-matter-synthesizer
+
+ambientSound: machine
+ambientSoundVolume: 0.7
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawFlame
+      flameColor: ff5555
+    }
+  ]
+}

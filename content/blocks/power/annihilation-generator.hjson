@@ -1,0 +1,45 @@
+type: ConsumeGenerator
+name: "湮滅發電廠"
+description: "通過正反物質的湮滅反應產生巨大能量。效率最高但需要同時供應兩種稀有材料。"
+size: 4
+health: 1600
+powerProduction: 120
+itemDuration: 180
+consumes: {
+  items: {
+    items: [
+      {
+        item: surge-alloy
+        amount: 1
+      }
+      {
+        item: anti-matter
+        amount: 1
+      }
+      {
+        item: void-crystal
+        amout: 2
+      }
+    ]
+  }
+}
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawFlame
+      flameColor: ff3333
+    }
+  ]
+}
+category: power
+research: anti-matter
+requirements: [
+  copper/80
+  lead/70
+  titanium/50
+  silicon/40
+]

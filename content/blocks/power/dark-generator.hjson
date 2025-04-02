@@ -1,0 +1,37 @@
+type: ConsumeGenerator
+name: "暗物質發電廠"
+description: "利用豐富的暗物質產生穩定的能量。雖然效率不高，但原料取得容易。"
+size: 2
+health: 800
+powerProduction: 15
+itemDuration: 60
+consumes: {
+  items: {
+    items: [
+      {
+        item: dark-matter
+        amount: 1
+      }
+    ]
+  }
+}
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawFlame
+      flameColor: 404040
+    }
+  ]
+}
+category: power
+research: thermal-generator
+requirements: [
+  copper/80
+  lead/70
+  titanium/50
+  silicon/40
+]

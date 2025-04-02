@@ -1,0 +1,9 @@
+type: material
+name: "反物質"
+description: "一種神秘的物質，蘊含著強大的能量。"
+color: 2D2B55
+research: dark-matter
+explosiveness: 2
+flammability: 0
+radioactivity: 1.5
+charge: 0.8
