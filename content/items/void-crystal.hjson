@@ -1,6 +1,6 @@
 type: material
-localizedName: "虛空能量結晶"
-description: "從虛空中提取並結晶化的純粹能量。這種不穩定的晶體蘊含著巨大的能量，可用於高級武器和設備。"
+localizedName: "暗能量"
+description: "不受電磁力和重力作用，卻是宇宙中佔據質能最多的能量，具有均勻的負壓力。"
 color: 6F6BC7
 research: {
   parent: dark-matter
