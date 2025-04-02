@@ -1,6 +1,6 @@
 type: GenericCrafter
-localizedName: "虛空提取器"
-description: "從虛空中提取純粹的能量並將其結晶化。需要大量電力支持。"
+localizedName: "暗能量提取器"
+description: "利用電力和釷產生重力並從宇宙中提取出暗能量"
 size: 3
 hasPower: true
 hasItems: true
