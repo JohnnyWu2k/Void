@@ -1,7 +1,7 @@
 type: GenericCrafter
 name: "antimatter-factory"
 localizedName: "反物質工廠"
-description: "使用波動合金和暗物質生產反物質，需要極高的能量輸入。"
+description: "使用波動合金和暗物質生產反物質，需要極高的能量來進行碰撞製造反物質。"
 size: 4
 health: 2000
 craftTime: 180
