@@ -23,18 +23,7 @@ consumes: {
     ]
   }
 }
-drawer: {
-  type: DrawMulti
-  drawers: [
-    {
-      type: DrawDefault
-    }
-    {
-      type: DrawFlame
-      flameColor: ff3333
-    }
-  ]
-}
+
 category: power
 research: anti-matter
 requirements: [

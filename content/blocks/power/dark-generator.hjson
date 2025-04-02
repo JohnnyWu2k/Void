@@ -15,18 +15,7 @@ consumes: {
     ]
   }
 }
-drawer: {
-  type: DrawMulti
-  drawers: [
-    {
-      type: DrawDefault
-    }
-    {
-      type: DrawFlame
-      flameColor: 404040
-    }
-  ]
-}
+
 category: power
 research: thermal-generator
 requirements: [

@@ -25,7 +25,6 @@ research: {
   parent: void-crystal
   requirements: [
     dark-matter/90
-    quantum-shard/45
     void-crystal/25
   ]
 }

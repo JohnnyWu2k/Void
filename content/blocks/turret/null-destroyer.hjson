@@ -73,35 +73,7 @@ ammoTypes: {
     status: melting
     statusDuration: 120
   }
-  quantum-shard: {
-    type: BasicBulletType
-    speed: 45
-    damage: 150
-    width: 20
-    height: 20
-    lifetime: 100
-    pierce: true
-    pierceCap: 3
-    hitEffect: hitLaser
-    despawnEffect: hitLaser
-    shootEffect: shootBig
-    smokeEffect: shootBigSmoke
-    frontColor: 9370DB
-    backColor: 4B478F
-    ammoMultiplier: 3
-    fragBullets: 4
-    fragBullet: {
-      type: BasicBulletType
-      speed: 30
-      damage: 40
-      width: 10
-      height: 10
-      lifetime: 30
-      frontColor: 9370DB
-      backColor: 4B478F
-    }
-  }
-}
+ }
 
 shoot: {
   type: ShootAlternate

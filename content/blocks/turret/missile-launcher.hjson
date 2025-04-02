@@ -19,7 +19,6 @@ consumes: {
 
 requirements: [
   dark-matter/90
-  quantum-shard/45
   void-crystal/25
 ]
 
@@ -27,7 +26,6 @@ research: {
   parent: void-crystal
   requirements: [
     dark-matter/120
-    quantum-shard/60
     void-crystal/35
   ]
 }
@@ -80,10 +78,4 @@ shoot: {
   shotDelay: 5
 }
 
-requirements: [
-  titanium/180
-  silicon/120
-  graphite/80
-]
 category: turret
-research: dark-matter-laser

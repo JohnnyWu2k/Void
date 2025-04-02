@@ -20,21 +20,7 @@ consumes: {
   }
 }
 
-drawer: {
-  type: DrawMulti
-  drawers: [
-    {
-      type: DrawDefault
-    }
-    {
-      type: DrawWarmupRegion
-    }
-    {
-      type: DrawFlame
-      flameColor: 141515
-    }
-  ]
-}
+
 
 category: power
 research: thermal-generator

@@ -36,15 +36,3 @@ research: dark-matter-synthesizer
 ambientSound: machine
 ambientSoundVolume: 0.7
 
-drawer: {
-  type: DrawMulti
-  drawers: [
-    {
-      type: DrawDefault
-    }
-    {
-      type: DrawFlame
-      flameColor: ff5555
-    }
-  ]
-}

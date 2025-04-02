@@ -1,5 +1,6 @@
 type: ItemTurret
 localizedName: "電磁炮"
+name: "void-pierce"
 description: "利用電磁加速技術發射高速彈丸，可以穿透多個敵人。"
 targetAir: true
 targetGround: true
