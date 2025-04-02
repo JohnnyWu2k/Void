@@ -1,6 +1,6 @@
 type: ConsumeGenerator
-name: "void-generator"
-description: "利用虛空之力發電的發電廠。"
+name: "暗能量發電廠"
+description: "利用暗能量均勻的負壓力製成的發電廠。"
 size: 3
 health: 1200
 powerProduction: 50
