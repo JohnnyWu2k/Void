@@ -1,0 +1,8 @@
+type: PayloadConveyor
+size: 1
+payloadLimit: 1
+moveTime: 15
+interp: linear
+requirements: [
+  silicon/10
+]

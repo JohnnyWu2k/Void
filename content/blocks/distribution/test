@@ -4,17 +4,42 @@ description: "因暗物質、暗能量、反物質及虛無的特殊屬性，所
 health: 45
 speed: 0.25
 displayedSpeed: 25
+
+rejectItems: [
+  copper
+  lead
+  graphite
+  coal
+  titanium
+  thorium
+  scrap
+  silicon
+  plastanium
+  phase-fabric
+  surge-alloy
+  spore-pod
+  sand
+  blast-compound
+  pyratite
+]
+
+acceptItems: [
+  dark-matter
+  anti-matter
+  void-crystal
+  null
+  null-alloy
+]
+
 research: {
   parent: void-crystal
   requirements: [
     dark-matter/50
-    quantum-shard/25
     void-crystal/10
   ]
 }
 requirements: [
   dark-matter/25
-  quantum-shard/15
   void-crystal/5
 ]
 category: distribution
