@@ -54,7 +54,7 @@ ammoTypes: {
     sideAngle: 15
     sideWidth: 0
     sideLength: 0
-    colors: [2D2B55, 4B478F, 6F6BC7]
+    colors: [0400FF, 130fff, 2521ff]
     ammoMultiplier: 1
   }
 }
