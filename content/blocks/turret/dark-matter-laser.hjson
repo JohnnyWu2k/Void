@@ -41,12 +41,6 @@ ammoTypes: {
     length: 450
     width: 60
     lifetime: 30
-    lightningSpacing: 30
-    lightningLength: 8
-    lightningDelay: 1.0
-    lightningLengthRand: 20
-    lightningDamage: 150
-    lightningAngleRand: 45
     largeHit: true
     shootEffect: greenLaserCharge
     healPercent: 20
@@ -54,7 +48,7 @@ ammoTypes: {
     sideAngle: 15
     sideWidth: 0
     sideLength: 0
-    colors: [0400FF, 130fff, 2521ff]
+    colors: [8886fc,8886fc,ededff]
     ammoMultiplier: 1
   }
 }
