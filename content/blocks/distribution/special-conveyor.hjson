@@ -1,8 +1,17 @@
-type: PayloadConveyor
+type: Conveyor
+localizedName: "質能運輸帶"
+description: "因暗物質、暗能量、反物質及虛無的特殊屬性，所以必須以特製運輸帶輸送。"
+name: "special-conveyor"
 size: 1
-payloadLimit: 1
-moveTime: 15
+health: 45
+speed: 0.09
+moveTime: 5
+displayedSpeed: 13
 interp: linear
+
+acceptItemsWithProperty: "specialTransport"
+
 requirements: [
-  silicon/10
+  silicon/100
 ]
+category: distribution

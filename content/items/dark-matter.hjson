@@ -1,6 +1,7 @@
 type: material
 name: "暗物質"
 description: "不受電磁力，卻受重力作用，可以讓許多星體能夠保持結構的物質。"
+specialTransport: true
 color: 2D2B55
 research: null
 explosiveness: 2
