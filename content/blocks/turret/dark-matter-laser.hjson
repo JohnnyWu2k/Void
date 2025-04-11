@@ -14,9 +14,10 @@ shake: 3
 consumes: {
   power: 16
   coolant: {
-    amount: 0.2
+    amount: 0.3
   }
 }
+
 
 requirements: [
   dark-matter/100

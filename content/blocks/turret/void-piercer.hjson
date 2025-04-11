@@ -23,7 +23,7 @@ consumes: {
 
 ammoTypes: {
   dark-matter: {
-    type: PointBulletType
+    type: LaserBulletType
     damage: 800
     speed: 25
     lifetime: 35
@@ -41,7 +41,7 @@ ammoTypes: {
     ammoMultiplier: 1
   }
   titanium: {
-    type: PointBulletType
+    type: LaserBulletType
     damage: 300
     speed: 15
     lifetime: 40
