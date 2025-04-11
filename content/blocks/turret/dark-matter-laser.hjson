@@ -41,8 +41,8 @@ ammoTypes: {
     width: 35
     lifetime: 18
     lightningSpacing: 30
-    lightningLength: 8
-    lightningDelay: 1.0
+    lightningLength: 16
+    lightningDelay: 3.0
     lightningLengthRand: 20
     lightningDamage: 150
     lightningAngleRand: 45
