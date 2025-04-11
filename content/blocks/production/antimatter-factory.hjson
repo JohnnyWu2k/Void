@@ -22,7 +22,7 @@ consumes: {
 }
 outputItem: {
   item: anti-matter
-  amount: 1
+  amount: 4
 }
 requirements: [
   surge-alloy/150

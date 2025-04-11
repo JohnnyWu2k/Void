@@ -12,7 +12,7 @@ range: 400
 shake: 3
 
 consumes: {
-  power: 15
+  power: 16
   coolant: {
     amount: 0.3
   }
