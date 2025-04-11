@@ -4,7 +4,7 @@ description: "???"
 targetAir: true
 targetGround: true
 health: 10000
-size: 2
+size: 3
 reload: 1
 ammoUseEffect: casing1
 inaccuracy: 2
