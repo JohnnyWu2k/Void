@@ -12,10 +12,12 @@ range: 400
 shake: 3
 
 consumes: {
+  power: 15
   coolant: {
-    amount: 0.2
+    amount: 0.3
   }
 }
+
 
 requirements: [
   dark-matter/100
