@@ -2,7 +2,7 @@ displayName: "Void"
 name: "Void"
 author: "Johnny"
 main: mymod.content.MyMod
-description: "a mod that adds some cool stuff"
+description: "added some cool stuff"
 version: 1.1
 minGameVersion: 147
 java: true
