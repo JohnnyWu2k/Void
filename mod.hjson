@@ -1,6 +1,8 @@
-name: "void"
 displayName: "Void"
+name: "Void"
 author: "Johnny"
-version: "1.0"
-description: "added some cool void stuff"
-minGameVersion: "146"
+main: mymod.content.MyMod
+description: "a mod that adds some cool stuff"
+version: 1.1
+minGameVersion: 147
+java: true

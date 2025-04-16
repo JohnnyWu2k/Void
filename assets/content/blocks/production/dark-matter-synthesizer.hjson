@@ -1,0 +1,40 @@
+type: GenericCrafter
+name: "dark-matter-synthesizer"  
+localizedName: "暗物質合成器"    
+description: "利用虛無和石墨的特性，合成出強大的暗物質。"
+size: 3
+health: 1500
+craftTime: 120
+consumes: {
+  power: 50
+  coolant: {
+    amount: 0.5
+  }
+  items: {
+    items: [
+      {
+        item: thorium
+        amount: 2
+      }
+    ]
+  }
+}
+outputItem: {
+  item: dark-matter
+  amount: 1
+}
+requirements: [
+  titanium/80
+  silicon/60
+  graphite/50
+]
+category: crafting
+
+
+ambientSound: machine
+ambientSoundVolume: 0.5
+
+drawLights: true
+hasItems: true
+hasPower: true
+updateEffect: smeltsmoke

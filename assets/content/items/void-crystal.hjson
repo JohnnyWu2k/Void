@@ -1,0 +1,10 @@
+type: material
+localizedName: "暗能量"
+description: "不受電磁力和重力作用，卻是宇宙中佔據質能最多的能量，具有均勻的負壓力。"
+color: 6F6BC7
+explosiveness: 2
+flammability: 0
+radioactivity: 1
+charge: 0.8
+cost: 3
+hardness: 4

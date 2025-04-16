@@ -1,0 +1,8 @@
+type: material
+name: "暗物質"
+description: "不受電磁力，卻受重力作用，可以讓許多星體能夠保持結構的物質。"
+color: 2D2B55
+explosiveness: 2
+flammability: 0
+radioactivity: 1.5
+charge: 0.8
