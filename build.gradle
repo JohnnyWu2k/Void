@@ -67,13 +67,13 @@ tasks.register('jarAndroid') {
         def d8 = isWindows ? "d8.bat" : "d8"
 
         //dex and desugar files - this requires d8 in your PATH
-        "$d8 $dependencies --min-api 14 --output TestModAndroid.jar TestModDesktop.jar"
+        "$d8 $dependencies --min-api 14 --output TestModAndroid.jar Void.jar"
                 .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 
 jar{
-    archiveFileName = "TestModDesktop.jar"
+    archiveFileName = "Void.jar"
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
@@ -140,11 +140,11 @@ tasks.register('deploy', Jar) {
     dependsOn jar
     archiveFileName = "TestMod.jar"
 
-    from { [zipTree("$buildDir/libs/TestModDesktop.jar"), zipTree("$buildDir/libs/TestModAndroid.jar")] }
+    from { [zipTree("$buildDir/libs/Void.jar"), zipTree("$buildDir/libs/TestModAndroid.jar")] }
 
     doLast {
         delete {
-            delete "$buildDir/libs/TestModDesktop.jar"
+            delete "$buildDir/libs/Void.jar"
             delete "$buildDir/libs/TestModAndroid.jar"
         }
     }
