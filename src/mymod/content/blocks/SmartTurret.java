@@ -22,7 +22,7 @@ public class SmartTurret {
     public static ItemTurret smartTurret;
 
     public static void load(){
-        var smartBullet = new BasicBulletType(4f, 0f){
+        var smartBullet = new BasicBulletType(4f, 10f){
             {
                 lifetime = 320f;
                 width = 12f;
@@ -40,7 +40,6 @@ public class SmartTurret {
                 collidesGround = true;
                 keepVelocity = false;
                 hittable = false; // 讓子彈不被打爆
-
             }
 
             @Override

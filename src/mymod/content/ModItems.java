@@ -2,7 +2,7 @@ package mymod.content; // 把這個類別放在 content 子包下，保持整潔
 
 import mindustry.type.Item;
 // 導入你之後會創建的具體物品類別，例如 NoriumItem
-import mymod.content.items.NoriumItem;
+import mymod.content.items.*;
 // 假設你把物品類別放在 items 子包
 
 
@@ -11,6 +11,7 @@ public class ModItems {
     // --- 在這裡宣告你的所有自訂物品 ---
     // 使用 public static Item 宣告變數
     public static Item norium;
+    public static Item darkmatter;
     // public static Item anotherCoolItem; // 如果有更多物品...
 
     // --- 創建一個靜態的 load 方法 ---
@@ -23,6 +24,7 @@ public class ModItems {
         norium = new NoriumItem("norium"); // <--- 你需要先創建 NoriumItem.java 這個檔案！
 
         // anotherCoolItem = new AnotherCoolItem("another-cool-item");
+         darkmatter = new DarkMatter("dark-matter");
 
         // 你可以在這裡立即設置一些 Java 屬性，如果它們不在物品自己的類別中設定的話
         // 例如: norium.hardness = 3; (但不推薦，最好在 NoriumItem 類別裡設定)

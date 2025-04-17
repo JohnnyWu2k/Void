@@ -11,8 +11,9 @@ public class MyMod extends Mod {
         Log.info("-----------------------------------------");
         Log.info("MyMod: loadContent() started.");
         Log.info("-----------------------------------------");
-        ModBlocks.load();
         ModItems.load();
+        ModBlocks.load();
+
 
     }
 }
