@@ -6,7 +6,7 @@ hasPower: true
 hasItems: true
 craftTime: 120
 consumes: {
-  power: 8
+  power: 25
   items: {
     items: [
       dark-matter/2

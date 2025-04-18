@@ -10,11 +10,11 @@ consumes: {
     items: [
       {
         item: surge-alloy
-        amount: 1
+        amount: 6
       }
       {
         item: anti-matter
-        amount: 1
+        amount: 6
       }
       {
         item: void-crystal
