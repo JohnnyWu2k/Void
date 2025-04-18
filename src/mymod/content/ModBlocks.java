@@ -7,7 +7,6 @@ public class ModBlocks {
         BoomWall.load();
         BoomTurret.load();
         BlackHoleTurret.load();
-        SmartTurret.load();
         VoidPiercer.load();
     }
 }
