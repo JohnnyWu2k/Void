@@ -25,8 +25,8 @@ public class BoomTurret {
             width = 25f;
             height = 25f;
             lifetime = 300f;
-            homingPower = 2f;
-            homingRange = 320f;
+            homingPower = 50f;
+            homingRange = 100f;
             keepVelocity = false;
             trailEffect = Fx.missileTrail;
             backColor = Color.gray;
@@ -37,6 +37,7 @@ public class BoomTurret {
             splashDamageRadius = 250f;
             collidesAir = true;
             collidesGround = true;
+            ammoMultiplier = 10;
         }};
 
 
@@ -48,7 +49,7 @@ public class BoomTurret {
             description = "Fires boom bullet toward enemies.";
             size = 3;
             health = 480;
-            reload = 70f;
+            reload = 35f;
             range = 600f;
             inaccuracy = 0f;
             shootSound = Sounds.missile;
@@ -57,7 +58,6 @@ public class BoomTurret {
 
             // 使用 silicon 作為彈藥
             ammo(silicon, boomBullet);
-
             rotateSpeed = 4f;
             targetAir = true;
             targetGround = true;
