@@ -1,5 +1,6 @@
 package mymod.content.blocks;
 
+import arc.util.Log;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.entities.bullet.LaserBulletType;
@@ -8,55 +9,59 @@ import mindustry.type.ItemStack;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.Env;
-import mymod.content.ModItems;
+import static mymod.content.items.DarkMatter.darkmatter;
 
-import static mindustry.content.Items.*;
 
 public class VoidPiercer {
     public static ItemTurret voidPiercer;
 
-    public static void load(){
-        // 暗物質彈藥
+    public static void load() {
+        Log.info("VoidPiercer: register void-piercer");
         var darkMatterBullet = new LaserBulletType(1000f) {{
-            lifetime = 200f;
-            pierce = true;
+            lifetime       = 200f;
+            pierce         = true;
             pierceBuilding = true;
             collides       = true;
             hittable       = true;
             collidesAir    = true;
             collidesGround = true;
-            pierceCap = 60;
-            width = 12f;
-            hitEffect = Fx.hitLaser;
-            shootEffect = Fx.lancerLaserShoot;
-            smokeEffect = Fx.none;
-            trailEffect = Fx.lancerLaserShootSmoke;
+            pierceCap      = 60;
+            width          = 12f;
+            hitEffect      = Fx.hitLaser;
+            shootEffect    = Fx.lancerLaserShoot;
+            smokeEffect    = Fx.none;
+            trailEffect    = Fx.lancerLaserShootSmoke;
             buildingDamageMultiplier = 0.8f;
             ammoMultiplier = 1f;
         }};
 
-        // 鈦彈
         var titaniumBullet = new LaserBulletType(700f) {{
-            lifetime = 40f;
-            pierce = true;
+            lifetime       = 40f;
+            pierce         = true;
             pierceBuilding = true;
             collides       = true;
             hittable       = true;
             collidesAir    = true;
             collidesGround = true;
-            pierceCap = 2;
-            width = 10f;
-            hitEffect = Fx.hitBulletBig;
-            shootEffect = Fx.shootBig;
-            smokeEffect = Fx.shootBigSmoke;
-            trailEffect = Fx.railTrail;
+            pierceCap      = 2;
+            width          = 10f;
+            hitEffect      = Fx.hitBulletBig;
+            shootEffect    = Fx.shootBig;
+            smokeEffect    = Fx.shootBigSmoke;
+            trailEffect    = Fx.railTrail;
             buildingDamageMultiplier = 0.6f;
             ammoMultiplier = 2f;
         }};
 
-        // 定義暗物質炮
         voidPiercer = new ItemTurret("void-piercer") {{
-            requirements(Category.turret, ItemStack.with(titanium, 250, silicon, 180, surgeAlloy, 40, graphite, 120));
+            requirements(Category.turret,
+                    ItemStack.with(
+                            darkmatter, 250,      // ← 直接用靜態匯入的 darkmatter
+                            Items.silicon, 180,
+                            Items.surgeAlloy, 40,
+                            Items.graphite, 120
+                    )
+            );
             localizedName = "暗物質炮";
             description   = "利用電磁加速技術轉換暗物質成超強能量光束";
             health        = 1600;
@@ -68,10 +73,9 @@ public class VoidPiercer {
             shake         = 4f;
             targetAir     = true;
             targetGround  = true;
-
-
+            ammoPerShot = 6;
             // 彈藥配置
-            ammo(ModItems.darkmatter, darkMatterBullet); //-->待修正
+            // ammo好像不支援模組物品匯入 ← 這裡一定要是剛剛註冊的 darkmatter
             ammo(Items.titanium, titaniumBullet);
 
             // 外觀與環境設定
