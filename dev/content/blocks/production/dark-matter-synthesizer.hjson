@@ -1,5 +1,5 @@
 type: GenericCrafter
-name: "dark-matter-synthesizer"  
+name: "darkmatter-synthesizer"  
 localizedName: "暗物質合成器"    
 description: "利用虛無和石墨的特性，合成出強大的暗物質。"
 size: 3
@@ -20,7 +20,7 @@ consumes: {
   }
 }
 outputItem: {
-  item: dark-matter
+  item: darkmatter
   amount: 1
 }
 requirements: [

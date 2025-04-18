@@ -20,13 +20,13 @@ consumes: {
 
 
 requirements: [
-  dark-matter/100
+  darkmatter/100
   void-crystal/25
 ]
 
 
 ammoTypes: {
-  dark-matter: {
+  darkmatter: {
     type: LaserBulletType
     damage: 650
     length: 450
@@ -59,6 +59,6 @@ shoot: {
 requirements: [
   titanium/200
   silicon/150
-  dark-matter/50
+  darkmatter/50
 ]
 category: turret

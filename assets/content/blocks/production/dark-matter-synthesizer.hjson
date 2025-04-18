@@ -20,7 +20,7 @@ consumes: {
   }
 }
 outputItem: {
-  item: dark-matter
+  item: darkmatter
   amount: 1
 }
 requirements: [

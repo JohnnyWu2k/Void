@@ -14,7 +14,7 @@ consumes: {
         amount: 4
       }
       {
-        item: dark-matter
+        item: darkmatter
         amount: 2
       }
     ]
@@ -28,10 +28,9 @@ requirements: [
   surge-alloy/150
   titanium/100
   silicon/80
-  dark-matter/50
+  darkmatter/50
 ]
 category: crafting
-research: dark-matter-synthesizer
 
 ambientSound: machine
 ambientSoundVolume: 0.7
