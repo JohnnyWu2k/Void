@@ -39,7 +39,7 @@ ammoTypes: {
     type: LaserBulletType
     damage: 650
     length: 450
-    width: 35
+    width: 70
     lifetime: 18
     lightningSpacing: 30
     lightningLength: 8
