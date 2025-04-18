@@ -9,7 +9,7 @@ reload: 1
 ammoUseEffect: casing1
 inaccuracy: 2
 rotateSpeed: 12
-range: 300
+range: 75
 shake: 1
 
 consumes: {
