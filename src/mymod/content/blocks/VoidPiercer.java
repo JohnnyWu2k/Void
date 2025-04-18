@@ -9,14 +9,14 @@ import mindustry.type.ItemStack;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.Env;
-import static mymod.content.items.DarkMatter.darkmatter;
+import mymod.content.ModItems;
+import mymod.content.items.DarkMatter;
 
 
 public class VoidPiercer {
     public static ItemTurret voidPiercer;
 
     public static void load() {
-        Log.info("VoidPiercer: register void-piercer");
         var darkMatterBullet = new LaserBulletType(1000f) {{
             lifetime       = 200f;
             pierce         = true;
@@ -34,29 +34,9 @@ public class VoidPiercer {
             buildingDamageMultiplier = 0.8f;
             ammoMultiplier = 1f;
         }};
-
-        var titaniumBullet = new LaserBulletType(700f) {{
-            lifetime       = 40f;
-            pierce         = true;
-            pierceBuilding = true;
-            collides       = true;
-            hittable       = true;
-            collidesAir    = true;
-            collidesGround = true;
-            pierceCap      = 2;
-            width          = 10f;
-            hitEffect      = Fx.hitBulletBig;
-            shootEffect    = Fx.shootBig;
-            smokeEffect    = Fx.shootBigSmoke;
-            trailEffect    = Fx.railTrail;
-            buildingDamageMultiplier = 0.6f;
-            ammoMultiplier = 2f;
-        }};
-
         voidPiercer = new ItemTurret("void-piercer") {{
             requirements(Category.turret,
-                    ItemStack.with(
-                            darkmatter, 250,      // ← 直接用靜態匯入的 darkmatter
+                    ItemStack.with(DarkMatter.darkmatter, 250,      // ← 直接用靜態匯入的 darkmatter
                             Items.silicon, 180,
                             Items.surgeAlloy, 40,
                             Items.graphite, 120
@@ -75,8 +55,9 @@ public class VoidPiercer {
             targetGround  = true;
             ammoPerShot = 6;
             // 彈藥配置
-            // ammo好像不支援模組物品匯入 ← 這裡一定要是剛剛註冊的 darkmatter
-            ammo(Items.titanium, titaniumBullet);
+            // ammo好像不支援模組物品匯入
+            ammo(DarkMatter.darkmatter, darkMatterBullet);
+
 
             // 外觀與環境設定
             drawer = new DrawTurret();

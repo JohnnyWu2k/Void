@@ -9,7 +9,7 @@ consumes: {
   power: 8
   items: {
     items: [
-      dark-matter/2
+      darkmatter/2
     ]
   }
 }
@@ -17,6 +17,6 @@ outputItem: void-crystal/1
 requirements: [
   titanium/150
   silicon/120
-  dark-matter/50
+  darkmatter/50
 ]
 category: crafting
