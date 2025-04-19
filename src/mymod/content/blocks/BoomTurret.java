@@ -1,8 +1,12 @@
 package mymod.content.blocks;
 
+import arc.Core;
 import arc.graphics.Color;
+import arc.graphics.Texture;
+import arc.graphics.g2d.TextureRegion;
 import arc.util.Log;
 import mindustry.content.Fx;
+import mindustry.entities.bullet.BulletType;
 import mindustry.gen.Sounds;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.type.Category;
@@ -19,18 +23,14 @@ public class BoomTurret {
     public static void load(){
         // 1. 定義導彈子彈
         var missileBullet = new BasicBulletType(8f, 120f){{
-            // 使用自家準備的導彈圖片，後面要放 assets/sprites/bullets/rocket-missile.png
-            sprite     = "missile";
-
 
             // 2. 大小調整
             width  = 15f;
             height = 15f;
-
             lifetime    = 400f;      // 飛行壽命長一點
             homingPower = 2f;      // 輕微追蹤
             homingRange = 200f;
-
+            sprite = "void-missileBullet";
             // 3. 讓子彈轉向其行進方向
 
             // 4. 特效與音效
@@ -43,11 +43,6 @@ public class BoomTurret {
             collidesAir    = true;
             collidesGround = true;
             ammoMultiplier = 8f;
-        }};
-
-        // 既有的普通彈藥
-        var siliconBullet = new BasicBulletType(6f, 60f){{
-            // …你的既有設定
         }};
 
         // 定義砲塔本體
@@ -78,10 +73,6 @@ public class BoomTurret {
             envEnabled   |= Env.any;
 
             drawer = new DrawTurret();
-
-            // 把剛剛的導彈當作彈藥
-
-            // 也可以保留原本的 silicon 彈
             ammo(silicon,   missileBullet);
         }};
     }
