@@ -8,5 +8,6 @@ public class ModBlocks {
         BoomTurret.load();
         BlackHoleTurret.load();
         VoidPiercer.load();
+        Reconstructors.load();
     }
 }

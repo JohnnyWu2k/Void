@@ -23,11 +23,13 @@ import mymod.content.effect.BlackHole;
 import static mindustry.content.Items.*;
 import static mymod.content.effect.BlackHole.blackHoleBulletEffect;
 import static mymod.content.effect.BlackHole.*;
+import mymod.content.bullets.BlackHoleBullet;
 
 public class BlackHoleTurret {
     public static ItemTurret blackholeturret;
 
     public static void load() {
+        var bh = new BlackHoleBullet();
         var blackHoleBullet = new BasicBulletType(2.5f, 0){
             {
                 lifetime = 90f;
@@ -87,7 +89,7 @@ public class BlackHoleTurret {
             shootCone = 15f;
             shootEffect = Fx.none;
             shootSound = Sounds.shootBig;
-            ammo(silicon, blackHoleBullet);
+            ammo(silicon, bh);
 
             targetAir = true;
             targetGround = true;

@@ -55,7 +55,7 @@ public class VoidPiercer {
             targetGround  = true;
             ammoPerShot = 6;
             // 彈藥配置
-            // ammo好像不支援模組物品匯入
+            // laser bullet只能接受一種彈藥
             ammo(DarkMatter.darkmatter, darkMatterBullet);
 
 
