@@ -36,7 +36,7 @@ public class VoidPiercer {
         }};
         voidPiercer = new ItemTurret("void-piercer") {{
             requirements(Category.turret,
-                    ItemStack.with(DarkMatter.darkmatter, 250,      // ← 直接用靜態匯入的 darkmatter
+                    ItemStack.with(DarkMatter.darkmatter, 250,
                             Items.silicon, 180,
                             Items.surgeAlloy, 40,
                             Items.graphite, 120

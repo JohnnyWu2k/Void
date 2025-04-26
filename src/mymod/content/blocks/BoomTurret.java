@@ -19,7 +19,6 @@ import static mindustry.content.Items.*;
 
 public class BoomTurret {
     public static ItemTurret boomturret;
-
     public static void load(){
         // 1. 定義導彈子彈
         var missileBullet = new BasicBulletType(8f, 120f){{
@@ -31,10 +30,7 @@ public class BoomTurret {
             homingPower = 2f;      // 輕微追蹤
             homingRange = 200f;
             sprite = "void-missileBullet";
-            // 3. 讓子彈轉向其行進方向
-
-            // 4. 特效與音效
-            trailEffect    = Fx.missileTrail;      // 給它火焰尾跡
+            trailEffect    = Fx.missileTrail;// 給它火焰尾跡
             shootEffect    = Fx.casing3;
             hitEffect      = Fx.hitFlameBeam;
             despawnEffect  = Fx.massiveExplosion;
@@ -47,7 +43,6 @@ public class BoomTurret {
 
         // 定義砲塔本體
         boomturret = new ItemTurret("boom-turret"){{
-            Log.info("BoomTurret: register boom-turret");
             requirements(Category.turret,
                     ItemStack.with(
                             copper,  100,
@@ -56,8 +51,8 @@ public class BoomTurret {
                     )
             );
 
-            localizedName = "Boom Turret";
-            description   = "Fires missile-like projectiles.";
+            localizedName = "導彈發射器";
+            description   = "發射導彈";
             size          = 3;
             health        = 480;
             reload        = 35f;

@@ -19,6 +19,7 @@ import mindustry.world.meta.Env;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 import mymod.content.effect.BlackHole;
+import mymod.content.items.DarkMatter;
 
 import static mindustry.content.Items.*;
 import static mymod.content.effect.BlackHole.blackHoleBulletEffect;
@@ -79,9 +80,9 @@ public class BlackHoleTurret {
 
 
         blackholeturret = new ItemTurret("blackhole-turret"){{
-            localizedName = "Blackhole Turret";
-            description = "Launches a gravitational core that attracts enemies and ends with a massive implosion.";
-            requirements(Category.turret, ItemStack.with(silicon, 120, titanium, 80, plastanium, 60));
+            localizedName = "黑洞發射器";
+            description = "聚集極度濃縮的暗物質，瞬間生成微型黑洞，對路徑上的敵方單位造成傷害，並在爆裂邊緣釋放毀滅性引力衝擊波。";
+            requirements(Category.turret, ItemStack.with(silicon, 120, titanium, 80, plastanium, 60, DarkMatter.darkmatter, 20));
             size = 3;
             health = 680;
             reload = 90f;
@@ -89,8 +90,12 @@ public class BlackHoleTurret {
             shootCone = 15f;
             shootEffect = Fx.none;
             shootSound = Sounds.shootBig;
+<<<<<<< Updated upstream
             ammo(silicon, bh);
 
+=======
+            ammo(DarkMatter.darkmatter, blackHoleBullet);
+>>>>>>> Stashed changes
             targetAir = true;
             targetGround = true;
             rotateSpeed = 6f;
