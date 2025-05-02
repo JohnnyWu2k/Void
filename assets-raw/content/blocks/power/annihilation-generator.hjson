@@ -4,21 +4,21 @@ description: "通過正反物質湮滅反應產生巨大能量。效率極高但
 size: 5
 health: 1600
 powerProduction: 1000
-itemDuration: 180
+itemDuration: 50
 consumes: {
   items: {
     items: [
       {
         item: surge-alloy
-        amount: 6
+        amount: 2
       }
       {
         item: anti-matter
-        amount: 6
+        amount: 2
       }
       {
         item: void-crystal
-        amount: 2
+        amount: 1
       }
     ]
   }

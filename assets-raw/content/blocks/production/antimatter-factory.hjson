@@ -4,14 +4,14 @@ localizedName: "反物質對撞機"
 description: "使用波動合金和暗物質生產反物質，需要極高的能量來進行碰撞製造反物質。"
 size: 4
 health: 2000
-craftTime: 120
+craftTime: 50
 consumes: {
   power: 100
   items: {
     items: [
       {
         item: surge-alloy
-        amount: 2
+        amount: 1
       }
       {
         item: dark-matter
@@ -22,7 +22,7 @@ consumes: {
 }
 outputItem: {
   item: anti-matter
-  amount: 2
+  amount: 1
 }
 requirements: [
   surge-alloy/150
