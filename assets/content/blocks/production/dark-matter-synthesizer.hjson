@@ -1,7 +1,7 @@
 type: GenericCrafter
 name: "dark-matter-synthesizer"  
 localizedName: "暗物質合成器"    
-description: "從宇宙微波背景輻射中蒐集微量的暗物質，並且用其他物質進行篩選，並提純出可用的暗物質。"
+description: "從宇宙微波背景輻射中蒐集微量的暗物質，並且用其他物質進行篩選，提純出可用的暗物質。"
 size: 3
 health: 1500
 craftTime: 120
