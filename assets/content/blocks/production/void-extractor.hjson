@@ -1,6 +1,6 @@
 type: GenericCrafter
 localizedName: "暗能量提取器"
-description: "利用大量電力和密度大的釷加強重力並從宇宙中分離出暗能量"
+description: "利用大量電力和高密度的釷加強重力，並從宇宙中分離出暗能量"
 size: 3
 hasPower: true
 hasItems: true
