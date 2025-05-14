@@ -4,7 +4,7 @@ localizedName: "暗物質合成器"
 description: "從宇宙微波背景輻射中蒐集微量的暗物質，並且用其他物質進行篩選，提純出可用的暗物質。"
 size: 3
 health: 1500
-craftTime: 120
+craftTime: 600
 consumes: {
   power: 50
   coolant: {
@@ -13,15 +13,27 @@ consumes: {
   items: {
     items: [
       {
-        item: thorium
-        amount: 2
+        item: copper
+        amount: 1
+      }
+      {
+        item: lead
+        amount: 1
+      }
+      {
+        item: sand
+        amount: 1
+      }
+      {
+        item: coal
+        amount: 1
       }
     ]
   }
 }
 outputItem: {
   item: darkmatter
-  amount: 1
+  amount: 5
 }
 requirements: [
   titanium/80
