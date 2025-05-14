@@ -20,7 +20,6 @@ consumes: {
     amount: 0.2
   }
 }
-}
 outputItem: void-crystal/1
 requirements: [
   titanium/150

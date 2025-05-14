@@ -1,6 +1,6 @@
 type: ConsumeGenerator
 name: "湮滅發電廠"
-description: "通過正反物質湮滅反應產生巨大能量。效率極高但同時需要供應兩種稀有材料和大量冷凍液。"
+description: "通過正反物質湮滅反應產生巨大能量。效率極高但同時需要供應兩種稀有材料，並用暗能量和大量冷凍液穩定反應。"
 size: 5
 health: 1600
 powerProduction: 1000
