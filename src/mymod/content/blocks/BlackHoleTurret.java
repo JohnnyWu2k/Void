@@ -90,16 +90,13 @@ public class BlackHoleTurret {
             shootCone = 15f;
             shootEffect = Fx.none;
             shootSound = Sounds.shootBig;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
             ammo(silicon, bh);
 
-=======
+
             ammo(DarkMatter.darkmatter, blackHoleBullet);
->>>>>>> Stashed changes
-=======
+
             ammo(DarkMatter.darkmatter, blackHoleBullet);
->>>>>>> Stashed changes
             targetAir = true;
             targetGround = true;
             rotateSpeed = 6f;
