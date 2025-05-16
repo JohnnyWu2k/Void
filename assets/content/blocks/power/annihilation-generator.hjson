@@ -24,7 +24,7 @@ consumes: {
   }
   liquid: {
     liquid: cryofluid
-    amount: 0.8
+    amount: 1
   }
 }
 
