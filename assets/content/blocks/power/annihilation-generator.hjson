@@ -4,7 +4,7 @@ description: "通過正反物質湮滅反應產生巨大能量。效率極高但
 size: 5
 health: 1600
 powerProduction: 1000
-itemDuration: 50
+itemDuration: 75
 consumes: {
   items: {
     items: [
@@ -18,7 +18,7 @@ consumes: {
       }
       {
         item: void-crystal
-        amount: 1
+        amount: 2
       }
     ]
   }

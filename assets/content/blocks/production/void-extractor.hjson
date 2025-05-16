@@ -4,7 +4,7 @@ description: "利用大量電力和高密度的釷加強重力，並從宇宙中
 size: 3
 hasPower: true
 hasItems: true
-craftTime: 120
+craftTime: 75
 consumes: {
   power: 8
   items: {
@@ -20,7 +20,11 @@ consumes: {
     amount: 0.2
   }
 }
-outputItem: void-crystal/1
+outputItem: 
+{
+  item: void-crystal
+  amount: 2
+}
 requirements: [
   titanium/150
   silicon/120
