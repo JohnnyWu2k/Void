@@ -7,9 +7,6 @@ health: 1500
 craftTime: 600
 consumes: {
   power: 50
-  coolant: {
-    amount: 0.5
-  }
   items: {
     items: [
       {
