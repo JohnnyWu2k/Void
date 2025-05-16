@@ -25,6 +25,10 @@ consumes: {
         item: coal
         amount: 1
       }
+      {
+        item: titanium
+        amount: 1
+      }
     ]
   }
 }
