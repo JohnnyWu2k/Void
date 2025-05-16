@@ -3,7 +3,7 @@ name: "暗能量發電廠"
 description: "利用暗能量均勻的負壓力製成的發電廠。"
 size: 3
 health: 1200
-powerProduction: 500
+powerProduction: 100
 itemDuration: 120
 hasItems: true
 hasLiquids: false
