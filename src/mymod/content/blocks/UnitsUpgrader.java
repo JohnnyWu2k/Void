@@ -9,10 +9,10 @@ import mymod.content.units.Delta;
 import static mindustry.content.Items.*;
 
 public class UnitsUpgrader {
-    public static Reconstructor deltaUpgrade;
+    public static Reconstructor UnitsUpgrader;
 
     public static void load() {
-        deltaUpgrade = new Reconstructor("unit-upgrader") {{
+        UnitsUpgrader = new Reconstructor("units-upgrader") {{
             // 建造升級機成本（UI 上 Requirements）
 
             requirements(Category.units,

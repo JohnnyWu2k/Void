@@ -11,10 +11,10 @@ import mindustry.world.blocks.units.UnitFactory.UnitPlan;
 
 
 public class UnitsCrafter {
-    public static UnitFactory deltaFactory;
+    public static UnitFactory UnitsFactory;
 //要用的是MultiplicativeReconstruct，但還沒找到
     public static void load() {
-        deltaFactory = new UnitFactory("delta-factory") {{
+        UnitsFactory = new UnitFactory("units-factory") {{
             requirements(Category.units, ItemStack.with(DarkMatter.darkmatter, 20, AntiMatter.antimatter, 12));
             size=2;
             health=3000;
@@ -22,7 +22,6 @@ public class UnitsCrafter {
             plans.add(new UnitPlan(Delta.delta,        // 輸入
                     240f,              // 耗時（4 秒）
                     ItemStack.with(DarkMatter.darkmatter, 200, AntiMatter.antimatter, 120)));
-
         }};
     }
 }
