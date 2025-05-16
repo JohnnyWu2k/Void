@@ -1,26 +1,27 @@
 package mymod.content.units;
 
+import arc.graphics.Color;
 import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mymod.content.bullets.BlackHoleBullet;
+import mymod.content.bullets.*;
 
 public class Delta {
     public static UnitType delta,delta2;
     public static void load(){
-        var bh=new BlackHoleBullet();
         delta = new UnitType("delta"){{
             hitSize=20f;
             health=1000f;
-            speed=3f;
+            speed=6f;
             armor=10f;
             flying=true;
             rotateSpeed=10f;
             weapons.add(new Weapon("delta weapon"){{
-                bullet=bh;
+                bullet=new LaserBeamBullet();
                 rotateSpeed=20f;
                 rotate=true;
-                reload=75f;
+                reload=20f;
+                trailColor= Color.red;
             }});
             buildRange=300f;
             buildSpeed=100f;
@@ -29,13 +30,13 @@ public class Delta {
 
         delta2 = new UnitType("delta2"){{
             hitSize=40f;
-            health=10000f;
-            speed=30f;
+            health=3000f;
+            speed=20f;
             armor=1000f;
             flying=true;
             rotateSpeed=100f;
             weapons.add(new Weapon("delta2 weapon"){{
-                bullet=bh;
+                bullet=new LaserBeamBullet();
                 rotateSpeed=200f;
                 rotate=true;
                 reload=7f;
