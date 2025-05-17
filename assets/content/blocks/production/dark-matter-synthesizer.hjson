@@ -31,6 +31,10 @@ consumes: {
       }
     ]
   }
+liquid: {
+    liquid: water
+    amount: 0.1
+  }
 }
 outputItem: {
   item: darkmatter
