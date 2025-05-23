@@ -2,17 +2,15 @@ package mymod.content.bullets;
 
 import mindustry.content.Fx;
 import mindustry.entities.bullet.BasicBulletType;
-
-import mindustry.entities.bullet.LaserBulletType;
 import mindustry.gen.Bullet;
 import mymod.content.effect.RedEffects;
 
 public class LaserBeamBullet extends BasicBulletType {
     public LaserBeamBullet() {
-        // speed = 光束速度，damage = 傷害
 
 
-        // 光束長度 (world units)，lifetime = length / speed
+
+
         speed=18f;
         damage=100f;
 

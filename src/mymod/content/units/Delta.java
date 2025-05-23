@@ -10,14 +10,14 @@ public class Delta {
     public static UnitType delta,delta2;
     public static void load(){
         delta = new UnitType("delta"){{
-            hitSize=20f;
+            hitSize=10f;
             health=1000f;
             speed=6f;
             armor=10f;
             flying=true;
             rotateSpeed=10f;
             weapons.add(new Weapon("delta weapon"){{
-                bullet=new LaserBeamBullet();
+                bullet=new LaserPhases.PhaseOneBeam();
                 rotateSpeed=20f;
                 rotate=true;
                 reload=20f;
@@ -29,14 +29,14 @@ public class Delta {
         }};
 
         delta2 = new UnitType("delta2"){{
-            hitSize=40f;
+            hitSize=20f;
             health=3000f;
             speed=20f;
             armor=1000f;
             flying=true;
             rotateSpeed=100f;
             weapons.add(new Weapon("delta2 weapon"){{
-                bullet=new LaserBeamBullet();
+                bullet=new LaserPhases.PhaseTwoBeam();
                 rotateSpeed=200f;
                 rotate=true;
                 reload=7f;
