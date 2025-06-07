@@ -10,5 +10,6 @@ public class ModBlocks {
         VoidPiercer.load();
         UnitsCrafter.load();
         UnitsUpgrader.load();
+        ComputerBlock.load();
     }
 }

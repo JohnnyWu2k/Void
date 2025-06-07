@@ -44,7 +44,7 @@ allprojects{
 
 //force arc version
 //configurations.configureEach {
-//    resolutionStrategy.eachDependency { details ->
+//    resolutionStrategy.eachDependency { detaiFolderGuiDemoEnhancedls ->
 //        if(details.requested.group == 'com.github.Anuken.Arc'){
 //            details.useVersion "$mindustryVersion"
 //        }

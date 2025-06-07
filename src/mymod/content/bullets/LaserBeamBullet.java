@@ -5,6 +5,8 @@ import mindustry.entities.bullet.BasicBulletType;
 import mindustry.gen.Bullet;
 import mymod.content.effect.RedEffects;
 
+import mindustry.world.blocks.storage.CoreBlock;
+
 public class LaserBeamBullet extends BasicBulletType {
     public LaserBeamBullet() {
 
