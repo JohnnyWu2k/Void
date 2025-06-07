@@ -19,7 +19,7 @@ public class ComputerBlock {
     public static Wall computer;
 
     public static void load() {
-        computer = new Wall("computer-wall") {{
+        computer = new Wall("computer") {{
             requirements(Category.defense, BuildVisibility.shown,
                     ItemStack.with(Items.blastCompound, 30)
             );
@@ -41,15 +41,13 @@ public class ComputerBlock {
 
                 @Override
                 public void buildConfiguration(Table table) {
-                    // 按鈕：切換啟用/停用 Swing UI
                     table.button(enabled ? "停用 Swing" : "啟用 Swing", () -> {
                         enabled = !enabled;
-                        hasOpenedSwing = false; // 重置，讓下一次點擊才會開 Swing
                         configure(new Object[]{enabled});
 
                         if (enabled && !hasOpenedSwing) {
                             hasOpenedSwing = true;
-                            // 在 Swing 的 EDT 上執行 new Swing 視窗
+                            // 啟動 Swing
                             javax.swing.SwingUtilities.invokeLater(() -> {
                                 try {
                                     FolderGuiDemoEnhanced demo = new FolderGuiDemoEnhanced();
@@ -58,12 +56,20 @@ public class ComputerBlock {
                                     Log.err("啟動 FolderGuiDemoEnhanced 失敗: " + e.getMessage());
                                 }
                             });
+                        } else if (!enabled) {
+                            // 停用 Swing → 在 EDT 中遍歷並關閉所有的 FolderGuiDemoEnhanced 視窗
+                            javax.swing.SwingUtilities.invokeLater(() -> {
+                                for (java.awt.Window w : java.awt.Window.getWindows()) {
+                                    if (w instanceof FolderGuiDemoEnhanced) {
+                                        w.dispose();
+                                    }
+                                }
+                            });
+                            hasOpenedSwing = false; // 重置
                         }
                     }).size(200f, 50f).pad(8f);
                     table.row();
-
-                    // 顯示目前狀態
-                    table.label(() -> enabled ? "Swing 介面已啟用" : "Swing 介面尚未啟用")
+                    table.label(() -> enabled ? "Swing 已啟用" : "Swing 已停用")
                             .padTop(8f).row();
                 }
 
