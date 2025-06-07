@@ -23,7 +23,7 @@ public class LaserBeamBullet extends BasicBulletType {
         hittable=true;
         // 特效
         hitEffect     = Fx.hitLaser;   // 碰到目標的特效
-        shootEffect   = Fx.railShoot; // 開火時的瞬間特效
+        shootEffect   = Fx.shootBig; // 開火時的瞬間特效
         despawnEffect = Fx.none;       // 消失時不額外特效
 
         // 行為
