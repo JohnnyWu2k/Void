@@ -1,8 +1,8 @@
 displayName: "Void"
-name: "Void"
+name: "void"
 author: "Johnny"
 main: mymod.content.MyMod
-description: "added some cool stuff"
-version: 1.1
-minGameVersion: 147
+description: "Matter, void energy, advanced power, turrets, and units for Mindustry v8."
+version: 1.2
+minGameVersion: 154
 java: true

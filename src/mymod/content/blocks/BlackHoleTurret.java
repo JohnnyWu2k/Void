@@ -1,9 +1,6 @@
 package mymod.content.blocks;
 
-import arc.audio.Sound;
-import arc.graphics.Color;
 import arc.math.Mathf;
-import arc.math.geom.Geometry;
 import mindustry.content.Fx;
 import mindustry.entities.Damage;
 import mindustry.gen.Bullet;
@@ -16,21 +13,18 @@ import mindustry.type.ItemStack;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.Env;
-import mindustry.world.meta.Stat;
-import mindustry.world.meta.StatUnit;
 import mymod.content.effect.BlackHole;
 import mymod.content.items.DarkMatter;
+import mymod.content.items.VoidCrystal;
 
 import static mindustry.content.Items.*;
 import static mymod.content.effect.BlackHole.blackHoleBulletEffect;
 import static mymod.content.effect.BlackHole.*;
-import mymod.content.bullets.BlackHoleBullet;
 
 public class BlackHoleTurret {
     public static ItemTurret blackholeturret;
 
     public static void load() {
-        var bh = new BlackHoleBullet();
         var blackHoleBullet = new BasicBulletType(2.5f, 0){
             {
                 lifetime = 90f;
@@ -80,21 +74,14 @@ public class BlackHoleTurret {
 
 
         blackholeturret = new ItemTurret("blackhole-turret"){{
-            localizedName = "黑洞發射器";
-            description = "聚集極度濃縮的暗物質，瞬間生成微型黑洞，對路徑上的敵方單位造成傷害，並在爆裂邊緣釋放毀滅性引力衝擊波。";
-            requirements(Category.turret, ItemStack.with(silicon, 120, titanium, 80, plastanium, 60, DarkMatter.darkmatter, 20));
+            requirements(Category.turret, ItemStack.with(silicon, 220, titanium, 160, plastanium, 120, surgeAlloy, 80, DarkMatter.darkmatter, 120, VoidCrystal.voidcrystal, 60));
             size = 3;
-            health = 680;
-            reload = 90f;
-            range = 360f;
+            health = 1800;
+            reload = 180f;
+            range = 320f;
             shootCone = 15f;
             shootEffect = Fx.none;
-            shootSound = Sounds.shootBig;
-
-            ammo(silicon, bh);
-
-
-            ammo(DarkMatter.darkmatter, blackHoleBullet);
+            shootSound = Sounds.shootMissileLarge;
 
             ammo(DarkMatter.darkmatter, blackHoleBullet);
             targetAir = true;

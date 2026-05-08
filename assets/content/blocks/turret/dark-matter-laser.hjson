@@ -1,14 +1,12 @@
 type: ItemTurret
-localizedName: "暗物質雷射炮"
-description: "利用暗物質的能量發射高能雷射束，可以對空中和地面目標造成巨大傷害。"
 targetAir: true
 targetGround: true
 health: 2000
 size: 3
-reload: 60
+reload: 75
 inaccuracy: 0
 rotateSpeed: 5
-range: 400
+range: 390
 shake: 3
 
 consumes: {
@@ -19,24 +17,18 @@ consumes: {
 }
 
 
-requirements: [
-  darkmatter/100
-  void-crystal/25
-]
-
-
 ammoTypes: {
   darkmatter: {
     type: LaserBulletType
-    damage: 650
-    length: 450
-    width: 35
+    damage: 420
+    length: 390
+    width: 28
     lifetime: 18
     lightningSpacing: 30
-    lightningLength: 8
+    lightningLength: 7
     lightningDelay: 1.0
     lightningLengthRand: 20
-    lightningDamage: 150
+    lightningDamage: 95
     lightningAngleRand: 45
     largeHit: true
     shootEffect: greenLaserCharge
@@ -59,6 +51,9 @@ shoot: {
 requirements: [
   titanium/200
   silicon/150
-  darkmatter/50
+  darkmatter/100
+  void-crystal/25
+  surge-alloy/60
 ]
 category: turret
+research: void-piercer

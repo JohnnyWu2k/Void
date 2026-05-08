@@ -1,5 +1,6 @@
 package mymod.content.blocks;
 
+import arc.Core;
 import arc.util.Log;
 import arc.scene.ui.layout.Table;
 import mindustry.gen.Building;
@@ -23,8 +24,6 @@ public class ComputerBlock {
             requirements(Category.defense, BuildVisibility.shown,
                     ItemStack.with(Items.blastCompound, 30)
             );
-            localizedName      = "電腦方塊";
-            description        = "點擊配置後可開啟 Swing 檔案管理與終端模擬 (配置介面不會自動關閉)";
             size               = 3;
             health             = 1000;
             update             = false;
@@ -41,7 +40,7 @@ public class ComputerBlock {
 
                 @Override
                 public void buildConfiguration(Table table) {
-                    table.button(enabled ? "停用 Swing" : "啟用 Swing", () -> {
+                    table.button(Core.bundle.get(enabled ? "ui.void.computer.disable" : "ui.void.computer.enable"), () -> {
                         enabled = !enabled;
                         configure(new Object[]{enabled});
 
@@ -69,7 +68,7 @@ public class ComputerBlock {
                         }
                     }).size(200f, 50f).pad(8f);
                     table.row();
-                    table.label(() -> enabled ? "Swing 已啟用" : "Swing 已停用")
+                    table.label(() -> Core.bundle.get(enabled ? "ui.void.computer.enabled" : "ui.void.computer.disabled"))
                             .padTop(8f).row();
                 }
 

@@ -7,8 +7,9 @@ public class AntiMatter {
 
     public static void load(){
         antimatter = new Item("anti-matter"){{
-            localizedName="反物質";
-            description="一種與正物質帶電量相反的物質，蘊含著強大的能量。";
+            explosiveness = 3f;
+            charge = 1.2f;
+            cost = 4f;
         }};
     }
 }

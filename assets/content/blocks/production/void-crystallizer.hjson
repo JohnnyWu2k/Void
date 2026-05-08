@@ -1,0 +1,33 @@
+type: GenericCrafter
+size: 3
+health: 1300
+hasPower: true
+hasItems: true
+hasLiquids: true
+craftTime: 360
+consumes: {
+  power: 18
+  items: [
+    silicon/2
+    thorium/1
+  ]
+  liquid: {
+    liquid: dark-energy
+    amount: 0.04
+  }
+}
+outputItem: {
+  item: void-crystal
+  amount: 1
+}
+requirements: [
+  titanium/100
+  silicon/100
+  metaglass/60
+  darkmatter/30
+]
+category: crafting
+research: void-extractor
+ambientSound: machine
+ambientSoundVolume: 0.45
+updateEffect: smeltsmoke

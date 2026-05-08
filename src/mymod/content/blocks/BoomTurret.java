@@ -1,12 +1,6 @@
 package mymod.content.blocks;
 
-import arc.Core;
-import arc.graphics.Color;
-import arc.graphics.Texture;
-import arc.graphics.g2d.TextureRegion;
-import arc.util.Log;
 import mindustry.content.Fx;
-import mindustry.entities.bullet.BulletType;
 import mindustry.gen.Sounds;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.type.Category;
@@ -20,46 +14,59 @@ import static mindustry.content.Items.*;
 public class BoomTurret {
     public static ItemTurret boomturret;
     public static void load(){
-        // 1. 定義導彈子彈
-        var missileBullet = new BasicBulletType(8f, 120f){{
-
-            // 2. 大小調整
+        var pyratiteMissile = new BasicBulletType(4.8f, 95f){{
             width  = 15f;
             height = 15f;
-            lifetime    = 400f;      // 飛行壽命長一點
-            homingPower = 2f;      // 輕微追蹤
-            homingRange = 200f;
+            lifetime    = 64f;
+            homingPower = 0.08f;
+            homingRange = 120f;
             sprite = "void-missileBullet";
-            trailEffect    = Fx.missileTrail;// 給它火焰尾跡
+            trailEffect    = Fx.missileTrail;
             shootEffect    = Fx.casing3;
             hitEffect      = Fx.hitFlameBeam;
             despawnEffect  = Fx.massiveExplosion;
-            splashDamage        = 500f;
-            splashDamageRadius  = 250f;
+            splashDamage        = 85f;
+            splashDamageRadius  = 42f;
             collidesAir    = true;
             collidesGround = true;
-            ammoMultiplier = 8f;
+            ammoMultiplier = 3f;
         }};
 
-        // 定義砲塔本體
+        var blastMissile = new BasicBulletType(4.4f, 145f){{
+            width  = 18f;
+            height = 18f;
+            lifetime    = 72f;
+            homingPower = 0.06f;
+            homingRange = 140f;
+            sprite = "void-missileBullet";
+            trailEffect    = Fx.missileTrail;
+            shootEffect    = Fx.casing3;
+            hitEffect      = Fx.blastExplosion;
+            despawnEffect  = Fx.massiveExplosion;
+            splashDamage        = 155f;
+            splashDamageRadius  = 58f;
+            collidesAir    = true;
+            collidesGround = true;
+            ammoMultiplier = 2f;
+        }};
+
         boomturret = new ItemTurret("boom-turret"){{
             requirements(Category.turret,
                     ItemStack.with(
                             copper,  100,
                             silicon,  80,
-                            titanium, 60
+                            titanium, 60,
+                            pyratite, 40
                     )
             );
 
-            localizedName = "導彈發射器";
-            description   = "發射導彈";
             size          = 3;
-            health        = 480;
-            reload        = 35f;
-            range         = 600f;
+            health        = 780;
+            reload        = 72f;
+            range         = 300f;
             inaccuracy    = 0f;
             rotateSpeed   = 4f;
-            shootSound    = Sounds.missile;   // 導彈發射音
+            shootSound    = Sounds.shootMissile;
             ammoUseEffect = Fx.casing2;
             shootCone     = 2f;
 
@@ -68,7 +75,10 @@ public class BoomTurret {
             envEnabled   |= Env.any;
 
             drawer = new DrawTurret();
-            ammo(silicon,   missileBullet);
+            ammo(
+                    pyratite, pyratiteMissile,
+                    blastCompound, blastMissile
+            );
         }};
     }
 }

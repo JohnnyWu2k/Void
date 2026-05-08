@@ -1,35 +1,34 @@
 type: ItemTurret
-localizedName: "虛無炮"
-description: "???"
 targetAir: true
 targetGround: true
-health: 10000
+health: 2400
 size: 3
-reload: 1
+reload: 55
 ammoUseEffect: casing1
 inaccuracy: 2
-rotateSpeed: 12
+rotateSpeed: 5
 range: 300
-shake: 1
+shake: 2
 
 consumes: {
+  power: 10
   coolant: {
-    amount: 0.1
+    amount: 0.2
   }
 }
 
 ammoTypes: {
   norium: {
     type: BasicBulletType
-    speed: 55
-    damage: 300
-    width: 22
+    speed: 5.5
+    damage: 130
+    width: 16
     height: 22
-    lifetime: 110
+    lifetime: 55
     pierce: true
-    pierceCap: 5
-    splashDamage: 100
-    splashDamageRadius: 140
+    pierceCap: 3
+    splashDamage: 70
+    splashDamageRadius: 44
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
     shootEffect: shootBig
@@ -42,11 +41,11 @@ ammoTypes: {
     fragBullets: 3
     fragBullet: {
       type: BasicBulletType
-      speed: 35
-      damage: 60
-      width: 12
+      speed: 4.5
+      damage: 35
+      width: 9
       height: 12
-      lifetime: 35
+      lifetime: 28
       pierce: true
       pierceCap: 2
       frontColor: 6F6BC7
@@ -55,13 +54,13 @@ ammoTypes: {
   }
   void-crystal: {
     type: BasicBulletType
-    speed: 50
-    damage: 120
-    width: 25
-    height: 25
-    lifetime: 120
-    splashDamage: 80
-    splashDamageRadius: 120
+    speed: 5
+    damage: 95
+    width: 15
+    height: 20
+    lifetime: 60
+    splashDamage: 55
+    splashDamageRadius: 40
     knockback: 3
     hitEffect: blastExplosion
     despawnEffect: blastExplosion
@@ -77,12 +76,16 @@ ammoTypes: {
 
 shoot: {
   type: ShootAlternate
-  shots: 8
+  shots: 4
   spread: 6
-  shotDelay: 1
+  shotDelay: 4
 }
 
 requirements: [
   norium/200
+  void-crystal/80
+  surge-alloy/100
+  silicon/200
 ]
 category: turret
+research: norium-forge

@@ -1,10 +1,7 @@
 type: GenericCrafter
-name: "dark-matter-synthesizer"  
-localizedName: "暗物質提純-合成器"    
-description: "從宇宙微波背景輻射中蒐集微量的暗物質，並且用其他物質進行篩選，提純出可用的暗物質。"
 size: 3
 health: 1500
-craftTime: 750
+craftTime: 900
 consumes: {
   power: 50
   items: {
@@ -38,14 +35,16 @@ liquid: {
 }
 outputItem: {
   item: darkmatter
-  amount: 20
+  amount: 2
 }
 requirements: [
   titanium/80
   silicon/60
   graphite/50
+  lead/80
 ]
 category: crafting
+research: silicon-smelter
 
 
 ambientSound: machine

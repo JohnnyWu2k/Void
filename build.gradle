@@ -1,107 +1,163 @@
-def appDataRoaming = System.getProperty("user.home") + "/AppData/Roaming/Mindustry/mods"
+def appDataRoaming = new File(System.getenv("APPDATA") ?: "${System.getProperty("user.home")}/AppData/Roaming", "Mindustry/mods")
+def steamModsDir = file("E:/Steam/steamapps/common/Mindustry/saves/mods")
+def mindustryDesktopJar = providers.gradleProperty("mindustryJar")
+        .orElse(providers.environmentVariable("MINDUSTRY_JAR"))
 
 apply plugin: "java"
 
-version '1.0'
+version = "1.2"
 
 sourceSets.main.java.srcDirs = ["src"]
 
 repositories {
     mavenCentral()
-    maven { url 'https://jitpack.io' }
+
+    ivy {
+        url "https://github.com/"
+        patternLayout { artifact "/[organisation]/[module]/releases/download/[revision]/dependencies.jar" }
+        metadataSources { artifact() }
+    }
+
+    ivy {
+        url "https://github.com/"
+        patternLayout { artifact "/[organisation]/Mindustry/releases/download/[revision]/Mindustry.jar" }
+        metadataSources { artifact() }
+    }
+
+    ivy {
+        url "https://github.com/"
+        patternLayout { artifact "/[organisation]/[module]/releases/download/master/[revision].jar" }
+        metadataSources { artifact() }
+    }
+
+    ivy {
+        url "https://github.com/"
+        patternLayout { artifact "/[organisation]/[module]/releases/download/[revision]/jabel.jar" }
+        metadataSources { artifact() }
+    }
 }
 
-java{
+java {
     targetCompatibility = 8
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
 ext {
-    mindustryVersion = "753262d436"
+    modArchiveName = "Void"
+    mindustryVersion = "v157.3"
+    isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
+    sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
-dependencies {
-    // 用 hash 指定 core（753262d436 是 v147）
-    compileOnly "com.github.Anuken.Mindustry:core:753262d436"
-
-    // 但 arc-core 不能用 hash，必須指定 tag 版本 v147
-    compileOnly "com.github.Anuken.Arc:arc-core:v147"
-
-    annotationProcessor "com.github.Anuken:jabel:93fde537c7"
-}
-
-
-//java 8 backwards compatibility flag
-allprojects{
+allprojects {
     tasks.withType(JavaCompile).tap {
         configureEach {
-            options.compilerArgs.addAll(['--release', '8'])
+            options.compilerArgs.addAll(["--release", "8"])
         }
     }
 }
 
+configurations {
+    mindustryRuntime
+}
 
+dependencies {
+    def useLatest = false
+    compileOnly useLatest ? "Anuken:MindustryBuilds:latest" : "Anuken:Mindustry:$mindustryVersion"
+    mindustryRuntime "Anuken:MindustryClient:$mindustryVersion"
+    annotationProcessor "Anuken:jabel:v1.0.0"
+}
 
-//force arc version
-//configurations.configureEach {
-//    resolutionStrategy.eachDependency { detaiFolderGuiDemoEnhancedls ->
-//        if(details.requested.group == 'com.github.Anuken.Arc'){
-//            details.useVersion "$mindustryVersion"
-//        }
-//    }
-//}
-
-tasks.register('jarAndroid') {
+tasks.register("jarAndroid") {
     dependsOn "jar"
 
     doLast {
-        if (!sdkRoot || !new File(sdkRoot).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.");
+        if (!sdkRoot || !new File(sdkRoot).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
 
         def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find { f -> new File(f, "android.jar").exists() }
 
         if (!platformRoot) throw new GradleException("No android.jar found. Ensure that you have an Android platform installed.")
 
-        //collect dependencies needed for desugaring
         def dependencies = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collect { "--classpath $it.path" }.join(" ")
-
         def d8 = isWindows ? "d8.bat" : "d8"
 
-        //dex and desugar files - this requires d8 in your PATH
-        "$d8 $dependencies --min-api 14 --output TestModAndroid.jar Void.jar"
+        "$d8 $dependencies --min-api 14 --output ${modArchiveName}Android.jar ${modArchiveName}Desktop.jar"
                 .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 
-jar{
-    archiveFileName = "Void.jar"
+jar {
+    archiveFileName = "${modArchiveName}Desktop.jar"
 
-    from{
-        configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 
-    from(projectDir){
+    from(projectDir) {
         include "mod.hjson"
     }
 
-    from("assets/"){
+    from("assets/") {
         include "**"
     }
 }
 
-//paths are hardcoded
-tasks.register('copyTo', Copy) {
-    from jar
-    into 'E:/Steam/steamapps/common/Mindustry/saves/mods'
-    rename { 'TestModJar.jar' }
+tasks.register("copyToMods") {
+    group = "mindustry"
+    description = "Builds ${modArchiveName}Desktop.jar and copies it to the local Mindustry mods folder."
+    dependsOn jar
+    outputs.upToDateWhen { false }
 
-    from jar
-    into appDataRoaming
-    rename { 'TestModJar.jar' }
+    doLast {
+        def jarFile = tasks.jar.archiveFile.get().asFile
+        def targets = [appDataRoaming]
+
+        if (steamModsDir.exists()) {
+            targets.add(steamModsDir)
+        }
+
+        targets.each { target ->
+            target.mkdirs()
+            copy {
+                from jarFile
+                into target
+                rename { "${modArchiveName}Desktop.jar" }
+            }
+            println "Copied ${jarFile.name} to ${new File(target, "${modArchiveName}Desktop.jar")}"
+        }
+    }
 }
 
-tasks.register('debugMobile', JavaExec) {
+tasks.named("build") {
+    finalizedBy "copyToMods"
+}
+
+tasks.register("copyTo") {
+    group = "mindustry"
+    description = "Compatibility alias for copyToMods."
+    dependsOn "copyToMods"
+}
+
+tasks.register("runMindustryDesktop", JavaExec) {
+    group = "mindustry"
+    description = "Builds the mod, copies it to mods, then starts Mindustry in debug mode."
+    dependsOn "copyToMods"
+    mainClass.set("-jar")
+
+    doFirst {
+        def configuredJar = mindustryDesktopJar.orNull
+        def mindustryJar = configuredJar ? file(configuredJar) : configurations.mindustryRuntime.singleFile
+
+        if (mindustryJar == null || !mindustryJar.exists()) {
+            throw new GradleException("Mindustry jar not found. Set it with -PmindustryJar=E:/path/to/Mindustry.jar or the MINDUSTRY_JAR environment variable.")
+        }
+        args = [mindustryJar.absolutePath, "-debug"]
+    }
+}
+
+tasks.register("debugMobile", JavaExec) {
     dependsOn classes
-    dependsOn 'copyTo'
+    dependsOn "copyTo"
 
     main = "-jar"
     args = [
@@ -111,41 +167,38 @@ tasks.register('debugMobile', JavaExec) {
     ]
 }
 
-tasks.register('debugDesktop', JavaExec) {
+tasks.register("debugDesktop", JavaExec) {
     dependsOn classes
-    dependsOn 'copyTo'
+    dependsOn "copyTo"
 
     main = "-jar"
     args = [
             "E:/project/MindustryModDevLib/Mindustry8.0.jar",
-            "-debug",
+            "-debug"
     ]
-
 }
 
-tasks.register('debugBE', JavaExec) {
+tasks.register("debugBE", JavaExec) {
     dependsOn classes
-    dependsOn 'copyTo'
+    dependsOn "copyTo"
 
     main = "-jar"
     args = [
             "E:/project/MindustryModDevLib/Mindustry-BE.jar",
-            "-debug",
+            "-debug"
     ]
-
 }
 
-tasks.register('deploy', Jar) {
+tasks.register("deploy", Jar) {
     dependsOn jarAndroid
     dependsOn jar
-    archiveFileName = "TestMod.jar"
+    archiveFileName = "${modArchiveName}.jar"
 
-    from { [zipTree("$buildDir/libs/Void.jar"), zipTree("$buildDir/libs/TestModAndroid.jar")] }
+    from { [zipTree("build/libs/${modArchiveName}Desktop.jar"), zipTree("build/libs/${modArchiveName}Android.jar")] }
 
     doLast {
         delete {
-            delete "$buildDir/libs/Void.jar"
-            delete "$buildDir/libs/TestModAndroid.jar"
+            delete "build/libs/${modArchiveName}Android.jar"
         }
     }
 }

@@ -1,37 +1,30 @@
 type: GenericCrafter
-name: "虛空之爐"
-description: "利用矽和石墨的物質特性，在虛空能量的催化下創造出純粹的虛無物質。"
 outputItem: {
   item: norium
-  amount: 2
+  amount: 1
 }
 consumes: {
-  power: 0.75
-  items: {
-    items: [
-      {
-        item: silicon
-        amount: 2
-      }
-      {
-        item: graphite
-        amount: 1
-      }
-    ]
-  }
+  power: 12
+  items: [
+    silicon/2
+    graphite/1
+    void-crystal/1
+  ]
 }
 requirements: [
   copper/30
   lead/30
   titanium/25
+  darkmatter/20
 ]
 size: 4
 hasPower: true
 hasLiquids: false
 hasItems: true
 itemCapacity: 10
-craftTime: 120
+craftTime: 240
 updateEffect: smeltsmoke
 category: crafting
+research: void-crystallizer
 idleSound: respawning
 idleSoundVolume: 0.5
