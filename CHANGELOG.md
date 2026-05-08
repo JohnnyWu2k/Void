@@ -4,6 +4,8 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+## [1.4] - 2026-05-08
+
 ### Added
 - Added English and Traditional Chinese bundles for mod content names, descriptions, and configurable UI labels.
 - Added this changelog for future tags and GitHub release notes.
