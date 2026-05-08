@@ -4,6 +4,9 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+### Changed
+- GitHub Releases now use only the matching version section from `CHANGELOG.md` as release notes.
+
 ## [1.4] - 2026-05-08
 
 ### Added
