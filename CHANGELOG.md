@@ -7,6 +7,7 @@ All notable changes to this project are documented here.
 ### Added
 - Added English and Traditional Chinese bundles for mod content names, descriptions, and configurable UI labels.
 - Added this changelog for future tags and GitHub release notes.
+- Added GitHub Actions automation to build `Void.jar` on pushes and pull requests, and publish the jar automatically for `v*` tags.
 - Added dark energy as a dedicated liquid resource for advanced machines and power conversion.
 - Added a dedicated dark energy liquid icon.
 - Added Void Crystallizer to convert dark energy liquid into portable Void Crystals.
