@@ -1,5 +1,4 @@
 def appDataRoaming = new File(System.getenv("APPDATA") ?: "${System.getProperty("user.home")}/AppData/Roaming", "Mindustry/mods")
-def steamModsDir = file("E:/Steam/steamapps/common/Mindustry/saves/mods")
 def mindustryDesktopJar = providers.gradleProperty("mindustryJar")
         .orElse(providers.environmentVariable("MINDUSTRY_JAR"))
 
@@ -46,6 +45,7 @@ ext {
     modArchiveName = "Void"
     mindustryVersion = "v157.3"
     isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
+    steamModsDir = isWindows ? file("E:/Steam/steamapps/common/Mindustry/saves/mods") : null
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
 }
 
@@ -112,7 +112,7 @@ tasks.register("copyToMods") {
         def jarFile = tasks.jar.archiveFile.get().asFile
         def targets = [appDataRoaming]
 
-        if (steamModsDir.exists()) {
+        if (steamModsDir != null && steamModsDir.exists()) {
             targets.add(steamModsDir)
         }
 
