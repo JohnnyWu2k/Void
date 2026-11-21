@@ -4,7 +4,13 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-11-21
+
+### Added
+- Added Android support. The same `Void.jar` now works on desktop and Android; the minimum Mindustry build remains 154.
+
 ### Changed
+- GitHub Actions now builds and verifies the combined JAR before publishing it.
 - GitHub Releases now use only the matching version section from `CHANGELOG.md` as release notes.
 
 ## [1.4] - 2026-05-08

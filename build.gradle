@@ -4,7 +4,7 @@ def mindustryDesktopJar = providers.gradleProperty("mindustryJar")
 
 apply plugin: "java"
 
-version = "1.4"
+version = "1.4.1"
 
 sourceSets.main.java.srcDirs = ["src"]
 

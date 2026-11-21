@@ -3,6 +3,6 @@ name: "void"
 author: "Johnny"
 main: mymod.content.MyMod
 description: "Matter, void energy, advanced power, turrets, and units for Mindustry v8."
-version: 1.4
+version: "1.4.1"
 minGameVersion: 154
 java: true
