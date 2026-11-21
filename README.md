@@ -8,6 +8,8 @@ A Mindustry v8 Java mod that adds dark matter production, void energy, Norium, a
 - Minimum game version: 154, matching the current Java mod template baseline where possible.
 - Desktop build: `.\gradlew.bat build`
 - Output: `build/libs/VoidDesktop.jar`
+- Desktop + Android release: set `ANDROID_HOME` to your Android SDK and add its Build Tools directory (containing `d8`) to `PATH`, then run `.\gradlew.bat deploy`.
+- Release output: `build/libs/Void.jar`. Use this jar to import the mod on Android; GitHub Actions publishes the same combined jar.
 
 The debug computer block is not loaded during normal gameplay. Start the game with `-Dvoid.debugComputer=true` only when you intentionally need the local Swing file manager and command runner.
 

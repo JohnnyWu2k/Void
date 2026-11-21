@@ -16,8 +16,11 @@ permissions:
 
 jobs:
   build:
-    name: Build jar
+    name: Build Desktop and Android jar
     runs-on: ubuntu-latest
+    env:
+      ANDROID_BUILD_TOOLS: "35.0.0"
+      ANDROID_PLATFORM: "android-35"
 
     steps:
       - name: Checkout
@@ -33,11 +36,20 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
 
-      - name: Build desktop jar
-        run: ./gradlew --no-daemon clean jar
+      - name: Set up Android build tools
+        run: |
+          sdkmanager "platforms;${ANDROID_PLATFORM}" "build-tools;${ANDROID_BUILD_TOOLS}"
+          echo "${ANDROID_HOME}/build-tools/${ANDROID_BUILD_TOOLS}" >> "$GITHUB_PATH"
 
-      - name: Prepare release jar
-        run: cp build/libs/VoidDesktop.jar build/libs/Void.jar
+      - name: Build Desktop and Android jar
+        run: ./gradlew --no-daemon clean deploy
+
+      - name: Verify release jar
+        run: |
+          jar tf build/libs/Void.jar > jar-contents.txt
+          grep -Fx mod.hjson jar-contents.txt
+          grep -Fx mymod/content/MyMod.class jar-contents.txt
+          grep -Fx classes.dex jar-contents.txt
 
       - name: Upload jar artifact
         uses: actions/upload-artifact@v4

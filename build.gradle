@@ -74,15 +74,20 @@ tasks.register("jarAndroid") {
     doLast {
         if (!sdkRoot || !new File(sdkRoot).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
 
-        def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find { f -> new File(f, "android.jar").exists() }
+        def platformsDir = new File(sdkRoot, "platforms")
+        def requestedPlatform = System.getenv("ANDROID_PLATFORM")
+        def platformRoot = requestedPlatform ? new File(platformsDir, requestedPlatform) :
+                platformsDir.listFiles()?.sort()?.reverse()?.find { f -> new File(f, "android.jar").isFile() }
 
-        if (!platformRoot) throw new GradleException("No android.jar found. Ensure that you have an Android platform installed.")
+        if (!platformRoot || !new File(platformRoot, "android.jar").isFile()) throw new GradleException("No android.jar found. Ensure that you have an Android platform installed.")
 
-        def dependencies = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collect { "--classpath $it.path" }.join(" ")
+        def dependencies = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collectMany { ["--classpath", it.path] }
         def d8 = isWindows ? "d8.bat" : "d8"
 
-        "$d8 $dependencies --min-api 14 --output ${modArchiveName}Android.jar ${modArchiveName}Desktop.jar"
-                .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
+        project.exec {
+            workingDir layout.buildDirectory.dir("libs").get().asFile
+            commandLine([d8] + dependencies + ["--min-api", "14", "--output", "${modArchiveName}Android.jar", "${modArchiveName}Desktop.jar"])
+        }
     }
 }
 
@@ -194,7 +199,10 @@ tasks.register("deploy", Jar) {
     dependsOn jar
     archiveFileName = "${modArchiveName}.jar"
 
-    from { [zipTree("build/libs/${modArchiveName}Desktop.jar"), zipTree("build/libs/${modArchiveName}Android.jar")] }
+    from { zipTree("build/libs/${modArchiveName}Desktop.jar") }
+    from({ zipTree("build/libs/${modArchiveName}Android.jar") }) {
+        include "classes*.dex"
+    }
 
     doLast {
         delete {
