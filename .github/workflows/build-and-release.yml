@@ -17,7 +17,7 @@ permissions:
 jobs:
   build:
     name: Build Desktop and Android jar
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       ANDROID_BUILD_TOOLS: "35.0.0"
       ANDROID_PLATFORM: "android-35"
@@ -36,10 +36,14 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
 
-      - name: Set up Android build tools
+      - name: Use preinstalled Android build tools
         run: |
-          sdkmanager "platforms;${ANDROID_PLATFORM}" "build-tools;${ANDROID_BUILD_TOOLS}"
-          echo "${ANDROID_HOME}/build-tools/${ANDROID_BUILD_TOOLS}" >> "$GITHUB_PATH"
+          build_tools="${ANDROID_HOME:?Android SDK is not configured}/build-tools/${ANDROID_BUILD_TOOLS}"
+          if [[ ! -x "${build_tools}/d8" || ! -f "${ANDROID_HOME}/platforms/${ANDROID_PLATFORM}/android.jar" ]]; then
+            echo "::error::Runner is missing Android Build Tools ${ANDROID_BUILD_TOOLS} or SDK platform ${ANDROID_PLATFORM}."
+            exit 1
+          fi
+          echo "${build_tools}" >> "$GITHUB_PATH"
 
       - name: Build Desktop and Android jar
         run: ./gradlew --no-daemon clean deploy
